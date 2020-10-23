@@ -32,8 +32,10 @@ public class MainActivity extends AppCompatActivity {
         final FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.frameConteudo,conversasFragment);
         transaction.commit();
+
         buttonContato = findViewById(R.id.buttonContato);
-        buttonConversas = findViewById(R.id.buttonContato);
+        buttonConversas = findViewById(R.id.buttonContversas);
+
         buttonContato.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,6 +47,18 @@ public class MainActivity extends AppCompatActivity {
                 transaction.commit();
             }
         });
+
+        buttonConversas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                conversasFragment = new ConversasFragment();
+
+                FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
+                transaction1.replace(R.id.frameConteudo, conversasFragment);
+                transaction1.commit();
+            }
+        });
+
 
     }
 }
